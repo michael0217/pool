@@ -10,3 +10,6 @@ ETH默认的是8545  OF默认的是8888
 
 
 miner.go 是挖矿程序,目前只有CPU挖矿程序, 执行后,在终端输入刚刚pool所在电脑的局域网IP地址,回车就OK了.
+
+详细介绍
+https://www.jianshu.com/p/37d646821ad5
