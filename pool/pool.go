@@ -269,14 +269,10 @@ func updateWork() {
 				time.Sleep(time.Millisecond * 200)
 				continue
 			}
-			//if &currWorkNew == &currWork {
-			//	logInfo.Println("新的任务跟当前任务一致")
-			//	return
-			//}
+
 			currWork = currWorkNew
 			currHash = currWork.Result[0].(string)
-			//log.Println("new123  work: ", currWorkNew)
-			//log.Println("current work: ", currWork)
+
 		} else {
 			currWork = nil
 			logError.Println("update work error: ", err)
@@ -290,9 +286,6 @@ func updateWork() {
 func submitWork(params []interface{}) (*ResponseBool, error) {
 	result, err := callBool("eth_submitWork", params)
 	return result, err
-	//if err == nil {
-	//	logInfo.Println(result.Result)
-	//}
 }
 
 func updatePendingBlock() {
@@ -309,11 +302,6 @@ func updatePendingBlock() {
 			} else if pendingBlockNumber != blockNbr {
 
 				pendingBlockNumber = blockNbr
-
-				//var rd *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
-				//lock.Lock()
-				//currNonce = uint64(rd.Int63())
-				//lock.Unlock()
 
 				blockDiff, err := strconv.ParseInt(strings.Replace(block.Result["difficulty"].(string), "0x", "", -1), 16, 64)
 				if err != nil {

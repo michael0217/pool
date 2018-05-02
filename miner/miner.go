@@ -12,9 +12,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-
 	"github.com/ethereum/go-ethereum/common"
-
 	"runtime"
 	"github.com/ethereum/ethash"
 	"time"
@@ -26,7 +24,6 @@ import (
 
 // 当前工作 结构体指针
 var currWork *ResponseArray = nil
-
 
 
 // 工作证明实类
@@ -151,7 +148,7 @@ func sealWork(currWork *ResponseArray, abort chan struct{}) {
 		//fmt.Println("第",th,"线程")
 
 		go func() {
-			currNonce, md := hasher.Search_test(myBlock, stop, 0)
+			currNonce, md := hasher.Search(myBlock, stop, 0)
 
 			l.Lock()
 			th--
@@ -243,7 +240,6 @@ func updatePendingBlock() {
 			logInfo.Println("new work info", currWorkNew)
 			logError.Println("get new work error: ", err)
 		} else {
-
 
 			if currWorkNew.Result == nil {
 				fmt.Println("获取的任务为空")
