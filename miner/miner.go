@@ -150,12 +150,16 @@ func sealWork(currWork *ResponseArray, abort chan struct{}) {
 		go func() {
 			currNonce, md := hasher.Search(myBlock, stop, 0)
 
-			l.Lock()
-			th--
-			if th < 0 {
-				th = 0
+			if mining {
+				l.Lock()
+				th--
+				if th < 0 {
+					th = 0
+				}
+				l.Unlock()
 			}
-			l.Unlock()
+
+
 
 			myBlock.nonce = currNonce
 			myBlock.mixDigest = common.BytesToHash(md)
