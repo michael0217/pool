@@ -1,15 +1,10 @@
-矿池基本介绍
+矿池
 
-pool.go 为矿池,直接执行就可以了,这里也许需要修改port(端口号)
+open-ofbank-pool-master 为矿池代码，已经根据OF做了相应的修改。
 
-ETH默认的是8545  OF默认的是8888
-
-所以这里也是可以双挖的,看个人需求吧
-
-!!!! 在pool.go 执行的电脑上一定要有一个以太坊或者OF的全节点,用来获取工作,提交工作.
+ofpool是网页的示例代码。
 
 
-miner.go 是挖矿程序,目前只有CPU挖矿程序, 执行后,在终端输入刚刚pool所在电脑的局域网IP地址,回车就OK了.
+部署过程可以参考
+https://blog.csdn.net/yincheng0571/article/details/80380116
 
-详细介绍
-https://www.jianshu.com/p/37d646821ad5
